@@ -11,9 +11,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/bulma": "^1.2.1",
-    "@nuxtjs/axios": "^5.3.6"
+    "nuxt": "^2.0.0",
+    "vue-youtube": "^1.4.0"
   },
   "devDependencies": {}
 }
