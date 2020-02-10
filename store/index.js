@@ -14,12 +14,12 @@ export const state = () => ({
 
 export const actions = {
   async fetchPopularVideos({commit}, payload) {
-    const client = createRequestClient(this.$axios)
+    const client = createRequestClient(this.$axios, this.$cookies, this)
     const res = await client.get(payload.uri, payload.params)
     commit('mutatePopularVideos', res)
   },
   async findVideo({commit}, payload) {
-    const client = createRequestClient(this.$axios)
+    const client = createRequestClient(this.$axios, this.$cookies, this)
     const res = await client.get(payload.uri)
     const params = {
       ...res.video_list,
@@ -28,12 +28,12 @@ export const actions = {
     commit('mutateVideo', params)
   },
   async fetchRelatedVideos({commit}, payload) {
-    const client = createRequestClient(this.$axios)
+    const client = createRequestClient(this.$axios, this.$cookies, this)
     const res = await client.get(payload.uri)
     commit('mutateRelatedVideos', res)
   },
   async searchVideos({commit}, payload) {
-    const client = createRequestClient(this.$axios)
+    const client = createRequestClient(this.$axios, this.$cookies, this)
     const res = await client.get(payload.uri, payload.params)
     commit('mutateSearchVideos', res)
   },
@@ -42,16 +42,21 @@ export const actions = {
     const res = await firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
     const token = await res.user.getIdToken()
     this.$cookies.set('jwt_token', token)
+    const refreshToken = res.user.refreshToken
+    this.$cookies.set('refresh_token', refreshToken)
     commit('mutateToken', token)
     this.app.router.push('/')
   },
   async setToken({commit}, payload) {
+    this.$cookies.set('jwt_token', payload)
     commit('mutateToken', payload)
   },
   async login({commit, dispatch}, payload) {
     const res = await firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
     const token = await res.user.getIdToken()
     this.$cookies.set('jwt_token', token)
+    const refreshToken = res.user.refreshToken
+    this.$cookies.set('refresh_token', refreshToken)
     commit('mutateToken', token)
     this.app.router.push('/')
   },
@@ -62,12 +67,12 @@ export const actions = {
     this.app.router.push('/')
   },
   async toggleFavorite({commit}, payload) {
-    const client = createRequestClient(this.$axios)
+    const client = createRequestClient(this.$axios, this.$cookies, this)
     const res = await client.post(payload.uri)
     commit('mutateToggleFavorite', res.is_favorite)
   },
   async fetchFavoriteVideos({commit}, payload) {
-    const client = createRequestClient(this.$axios)
+    const client = createRequestClient(this.$axios, this.$cookies, this)
     const res = await client.get(payload.uri)
     commit('mutateFavoriteVideos', res)
   },
