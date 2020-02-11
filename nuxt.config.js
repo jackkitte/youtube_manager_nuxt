@@ -61,7 +61,8 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://localhost:8888/'
+    // baseURL: 'http://localhost:8888/'
+    baseURL: 'http://ec2-13-230-121-75.ap-northeast-1.compute.amazonaws.com/'
   },
   proxy: {
     '/api': '/'
