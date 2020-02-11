@@ -3,7 +3,7 @@ import "firebase/auth";
 
 if (!firebase.apps.length) {
   firebase.initializeApp({
-    apiKey: process.env.API_KEY,
+    apiKey: "AIzaSyAw-QsQjOpaJm1qQtIEj-aSNrIA5_TJKuM",
     authDomain: "manager-9c70d.firebaseapp.com",
     databaseURL: "https://manager-9c70d.firebaseio.com",
     projectId: "manager-9c70d",
