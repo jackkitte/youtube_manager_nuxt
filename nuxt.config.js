@@ -62,7 +62,7 @@ export default {
   */
   axios: {
     // baseURL: 'http://localhost:8888/'
-    baseURL: 'http://ec2-13-230-121-75.ap-northeast-1.compute.amazonaws.com/'
+    baseURL: 'https://d3n7fkm7yk520i.cloudfront.net/'
   },
   proxy: {
     '/api': '/'
