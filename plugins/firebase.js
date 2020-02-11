@@ -4,12 +4,12 @@ import "firebase/auth";
 if (!firebase.apps.length) {
   firebase.initializeApp({
     apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    databaseURL: process.env.DATABASE_URL,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID 
+    authDomain: "manager-9c70d.firebaseapp.com",
+    databaseURL: "https://manager-9c70d.firebaseio.com",
+    projectId: "manager-9c70d",
+    storageBucket: "manager-9c70d.appspot.com",
+    messagingSenderId: "716724052449",
+    appId: "1:716724052449:web:348c9a6782fa3719d3b2a0"
   })
 }
 
