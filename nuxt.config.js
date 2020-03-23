@@ -59,7 +59,8 @@ export default {
   */
   axios: {
     // baseURL: 'http://localhost:8888/'
-    baseURL: 'https://d3n7fkm7yk520i.cloudfront.net/'
+    // baseURL: 'https://d3n7fkm7yk520i.cloudfront.net/'
+    baseURL: 'https://youtube-manager-go.herokuapp.com/'
   },
   proxy: {
     '/api': '/'
